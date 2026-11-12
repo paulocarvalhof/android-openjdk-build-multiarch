@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 . setdevkitpath.sh
 
 if [[ "$TARGET_JDK" == "arm" ]]
