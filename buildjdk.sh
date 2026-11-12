@@ -74,7 +74,9 @@ if [[ "$BUILD_IOS" != "1" ]]; then
 else
   git apply --reject --whitespace=fix ../patches/jdk8u_ios.diff || echo "git apply failed (ios patch set)"
   git apply --reject --whitespace=fix ../patches/jdk8u_ios_fix_clang.diff || echo "git apply failed (ios clang fix patch set)"
+ fi
 fi
+sed -i 's/as_fn_error \$? "GCC < 5 may incorrectly.*/:/' common/autoconf/generated-configure.sh && grep -c "GCC < 5 may" common/autoconf/generated-configure.sh || true
 
 #   --with-extra-cxxflags="$CXXFLAGS -Dchar16_t=uint16_t -Dchar32_t=uint32_t" \
 #   --with-extra-cflags="$CPPFLAGS" \
