@@ -19,6 +19,7 @@ fi
 ./getlibs.sh
 ./buildlibs.sh
 ./clonejdk.sh
+sed -i 's/as_fn_error \$? "GCC < 5 may incorrectly.*/:/' openjdk/common/autoconf/generated-configure.sh
 ./buildjdk.sh
 ./removejdkdebuginfo.sh
 ./tarjdk.sh
